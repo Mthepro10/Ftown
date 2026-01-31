@@ -32,7 +32,7 @@ type UserResponse struct {
 }
 
 var accountInfoCmd = &cobra.Command{
-	Use:   "accountInfo",
+	Use:   "account-info",
 	Short: "Show full account info",
 	RunE: func(cmd *cobra.Command, args []string) error {
 

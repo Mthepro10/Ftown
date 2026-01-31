@@ -15,6 +15,7 @@ var rootCmd = &cobra.Command{
 	Short: "Etension for Flavortown",
 	Long: `This includes:
 			-API authentification: ftown auth [API_KEY]
+                --To verify your key you should include the --verify, -v flag
 				--You can also logout using the: ftown logout
 			-You can see account info using: ftown accountInfo
 			-You can see the shop: ftown shop [where]
