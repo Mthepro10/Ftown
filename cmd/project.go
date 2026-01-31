@@ -8,6 +8,20 @@ import (
 	"github.com/spf13/cobra"
 )
 
+type Project struct {
+	ID            int    `json:"id"`
+	Title         string `json:"title"`
+	Description   string `json:"description"`
+	RepoURL       string `json:"repo_url"`
+	DemoURL       string `json:"demo_url"`
+	ReadmeURL     string `json:"readme_url"`
+	AIDeclaration string `json:"ai_declaration"`
+	ShipStatus    string `json:"ship_status"`
+	DevlogIDs     []int  `json:"devlog_ids"`
+	CreatedAt     string `json:"created_at"`
+	UpdatedAt     string `json:"updated_at"`
+}
+
 // projectCmd represents the project command
 var projectCmd = &cobra.Command{
 	Use:   "project",

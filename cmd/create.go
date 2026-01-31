@@ -4,6 +4,7 @@ Copyright © 2026 MIHAI DRAGHICI <mihaidraghiici023@gmail.com>
 package cmd
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
@@ -55,7 +56,7 @@ var createCmd = &cobra.Command{
 			return err
 		}
 		defer respMe.Body.Close()
-		if respMe.StatusCode != http.StatusOK {
+		if respMe.StatusCode != http.StatusCreated {
 			return fmt.Errorf("%s", respMe.Status)
 		}
 
@@ -64,7 +65,22 @@ var createCmd = &cobra.Command{
 			return err
 		}
 
-		fmt.Println(string(userBody))
+		var resp Project
+		if err := json.Unmarshal(userBody, &resp); err != nil {
+			return err
+		}
+
+		fmt.Println("Project ID: ", resp.ID)
+		fmt.Println("Title: ", resp.Title)
+		fmt.Println("Description: ", resp.Description)
+		fmt.Println("Repo URL: ", resp.RepoURL)
+		fmt.Println("Demo URL: ", resp.DemoURL)
+		fmt.Println("Readme URL: ", resp.ReadmeURL)
+		fmt.Println("AI Declaration: ", resp.AIDeclaration)
+		fmt.Println("Ship Status: ", resp.ShipStatus)
+		fmt.Println("Devlog IDs: ", resp.DevlogIDs)
+		fmt.Println("Created At: ", resp.CreatedAt)
+		fmt.Println("Updated At: ", resp.UpdatedAt)
 
 		return nil
 	},
