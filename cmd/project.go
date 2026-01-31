@@ -13,7 +13,8 @@ var projectCmd = &cobra.Command{
 	Use:   "project",
 	Short: "root command for projects",
 	Long:  `root command for ptojects`,
-	Run: func(cmd *cobra.Command, args []string) {
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return nil
 	},
 }
 
