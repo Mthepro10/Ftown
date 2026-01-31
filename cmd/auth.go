@@ -6,6 +6,7 @@ package cmd
 
 import (
 	"fmt"
+	"net/http"
 
 	"github.com/spf13/cobra"
 	"github.com/zalando/go-keyring"
@@ -30,11 +31,33 @@ var authCmd = &cobra.Command{
 			return fmt.Errorf("failed to store API key: %w", err)
 		}
 
+		client := &http.Client{}
+		if verify {
+			reqMe, err := http.NewRequest("GET", "https://flavortown.hackclub.com/api/v1/users/me", nil)
+			if err != nil {
+				return err
+			}
+			reqMe.Header.Set("Authorization", "Bearer "+apiKey)
+
+			respMe, err := client.Do(reqMe)
+			if err != nil {
+				return err
+			}
+			defer respMe.Body.Close()
+
+			if respMe.StatusCode != http.StatusOK {
+				return fmt.Errorf("%s", respMe.Status)
+			}
+		}
+
 		fmt.Println("API key stored securely in Windows Credential Manager ✅")
 		return nil
 	},
 }
 
+var verify bool
+
 func init() {
 	rootCmd.AddCommand(authCmd)
+	authCmd.Flags().BoolVarP(&verify, "verify", "v", false, "verify the token")
 }
