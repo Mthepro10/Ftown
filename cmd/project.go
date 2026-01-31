@@ -32,6 +32,22 @@ var projectCmd = &cobra.Command{
 	},
 }
 
+var title string
+var description string
+var repo string
+var demo string
+var readme string
+var ai_declaration string
+
 func init() {
 	rootCmd.AddCommand(projectCmd)
+	createCmd.Flags().StringVarP(&title, "title", "t", "", "project title")
+	createCmd.Flags().StringVarP(&description, "description", "d", "", "project description")
+	createCmd.Flags().StringVarP(&repo, "repo", "r", "", "project repo")
+	createCmd.Flags().StringVarP(&demo, "demo", "e", "", "project demo")
+	createCmd.Flags().StringVarP(&readme, "readme", "m", "", "project readme")
+	createCmd.Flags().StringVarP(&ai_declaration, "ai_declaration", "a", "", "project ai_declaration")
+
+	createCmd.MarkFlagRequired("title")
+	createCmd.MarkFlagRequired("description")
 }
