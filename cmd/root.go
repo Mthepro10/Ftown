@@ -19,7 +19,12 @@ var rootCmd = &cobra.Command{
 				--You can also logout using the: ftown logout
 			-You can see account info using: ftown accountInfo
 			-You can see the shop: ftown shop [where]
-			-You can see specific item from shop: ftown shop item [name] [where], if name if longer than 1 word put it in "..."`,
+			-You can see specific item from shop: ftown shop item [name] [where], if name if longer than 1 word put it in "..."
+			-Added project commands
+				--You can update projects by name or by id: ftown project update [ID]
+				--You can create projects: ftown project create --title --description
+				--You can see project info by name or by id: ftown project info [ID]
+				--Flag by name is not recommended because it is not precise`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
