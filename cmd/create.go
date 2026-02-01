@@ -50,6 +50,8 @@ var createCmd = &cobra.Command{
 			return err
 		}
 		reqMe.Header.Set("Authorization", "Bearer "+apiKey)
+		reqMe.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+		reqMe.Header.Set("Accept", "application/json")
 
 		respMe, err := client.Do(reqMe)
 		if err != nil {
