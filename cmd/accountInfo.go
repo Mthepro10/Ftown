@@ -7,7 +7,6 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"net/http"
 
 	"github.com/spf13/cobra"
@@ -59,13 +58,9 @@ var accountInfoCmd = &cobra.Command{
 			return fmt.Errorf("%s", respMe.Status)
 		}
 
-		meBody, err := io.ReadAll(respMe.Body)
-		if err != nil {
-			return err
-		}
-
 		var me Response
-		if err := json.Unmarshal(meBody, &me); err != nil {
+		dec := json.NewDecoder(respMe.Body)
+		if err := dec.Decode(&me); err != nil {
 			return err
 		}
 
@@ -89,13 +84,9 @@ var accountInfoCmd = &cobra.Command{
 			return fmt.Errorf("API error: %s", respUser.Status)
 		}
 
-		userBody, err := io.ReadAll(respUser.Body)
-		if err != nil {
-			return err
-		}
-
 		var user UserResponse
-		if err := json.Unmarshal(userBody, &user); err != nil {
+		dec = json.NewDecoder(respUser.Body)
+		if err := dec.Decode(&user); err != nil {
 			return err
 		}
 

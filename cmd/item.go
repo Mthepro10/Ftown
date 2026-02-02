@@ -6,7 +6,6 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"net/http"
 	"strings"
 
@@ -48,13 +47,9 @@ var itemCmd = &cobra.Command{
 			return fmt.Errorf("%s", respMe.Status)
 		}
 
-		meBody, err := io.ReadAll(respMe.Body)
-		if err != nil {
-			return err
-		}
-
 		var resp []Shop
-		if err := json.Unmarshal(meBody, &resp); err != nil {
+		dec := json.NewDecoder(respMe.Body)
+		if err := dec.Decode(&resp); err != nil {
 			return err
 		}
 
@@ -88,13 +83,9 @@ var itemCmd = &cobra.Command{
 			return fmt.Errorf("%s", itemResp.Status)
 		}
 
-		fullBody, err := io.ReadAll(itemResp.Body)
-		if err != nil {
-			return err
-		}
-
 		var ans Shop
-		if err := json.Unmarshal(fullBody, &ans); err != nil {
+		dec = json.NewDecoder(itemResp.Body)
+		if err := dec.Decode(&ans); err != nil {
 			return err
 		}
 
