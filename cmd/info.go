@@ -39,6 +39,7 @@ var infoCmd = &cobra.Command{
 				return err
 			}
 			req.Header.Set("Authorization", "Bearer "+apiKey)
+			req.Header.Set("X-Flavortown-Ext-10376", "true")
 
 			resp, err := client.Do(req)
 			if err != nil {
@@ -78,6 +79,7 @@ var infoCmd = &cobra.Command{
 		}
 		req.Header.Set("Authorization", "Bearer "+apiKey)
 		req.Header.Set("Accept", "application/json")
+		req.Header.Set("X-Flavortown-Ext-10376", "true")
 
 		resp, err := client.Do(req)
 		if err != nil {

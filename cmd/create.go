@@ -52,6 +52,7 @@ var createCmd = &cobra.Command{
 		reqMe.Header.Set("Authorization", "Bearer "+apiKey)
 		reqMe.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 		reqMe.Header.Set("Accept", "application/json")
+		reqMe.Header.Set("X-Flavortown-Ext-10376", "true")
 
 		respMe, err := client.Do(reqMe)
 		if err != nil {

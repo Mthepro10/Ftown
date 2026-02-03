@@ -47,6 +47,7 @@ var accountInfoCmd = &cobra.Command{
 			return err
 		}
 		reqMe.Header.Set("Authorization", "Bearer "+apiKey)
+		reqMe.Header.Set("X-Flavortown-Ext-10376", "true")
 
 		respMe, err := client.Do(reqMe)
 		if err != nil {
@@ -73,6 +74,7 @@ var accountInfoCmd = &cobra.Command{
 			return err
 		}
 		reqUser.Header.Set("Authorization", "Bearer "+apiKey)
+		reqUser.Header.Set("X-Flavortown-Ext-10376", "true")
 
 		respUser, err := client.Do(reqUser)
 		if err != nil {
@@ -96,7 +98,11 @@ var accountInfoCmd = &cobra.Command{
 		fmt.Println("Display name:", user.DisplayName)
 		fmt.Println("Slack ID:", user.SlackID)
 		fmt.Println("Projects:", user.ProjectIDs)
-		fmt.Println("Cookies:", *user.Cookies)
+		if user.Cookies != nil {
+			fmt.Println("Cookies:", *user.Cookies)
+		} else {
+			fmt.Println("Cookies: 0") // or "nil" if you prefer
+		}
 		fmt.Println("Votes:", user.VoteCount)
 		fmt.Println("Likes:", user.LikeCount)
 		fmt.Printf("Devlog hours: %.1f\n", float64(user.DevlogSecondsTotal)/3600)

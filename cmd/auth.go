@@ -38,6 +38,7 @@ var authCmd = &cobra.Command{
 				return err
 			}
 			reqMe.Header.Set("Authorization", "Bearer "+apiKey)
+			reqMe.Header.Set("X-Flavortown-Ext-10376", "true")
 
 			respMe, err := client.Do(reqMe)
 			if err != nil {

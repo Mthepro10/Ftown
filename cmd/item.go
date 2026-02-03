@@ -36,6 +36,7 @@ var itemCmd = &cobra.Command{
 			return err
 		}
 		reqMe.Header.Set("Authorization", "Bearer "+apiKey)
+		reqMe.Header.Set("X-Flavortown-Ext-10376", "true")
 
 		respMe, err := client.Do(reqMe)
 		if err != nil {
@@ -72,6 +73,7 @@ var itemCmd = &cobra.Command{
 			return err
 		}
 		reqItem.Header.Set("Authorization", "Bearer "+apiKey)
+		reqItem.Header.Set("X-Flavortown-Ext-10376", "true")
 
 		itemResp, err := client.Do(reqItem)
 		if err != nil {
