@@ -1,0 +1,24 @@
+project_name: ftown
+
+builds:
+  - id: ftown-windows
+    main: ./main.go
+    binary: ftown
+    goos:
+      - windows
+    goarch:
+      - amd64
+
+archives:
+  - id: ftown-windows-archive
+    builds:
+      - ftown-windows
+    format: zip
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "{{ .ProjectName }}_{{ .Version }}_checksums.txt"
+
+release:
+  draft: false
+  prerelease: false

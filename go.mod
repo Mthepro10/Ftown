@@ -1,6 +1,6 @@
 module Flavortown_extension
 
-go 1.25
+go 1.22
 
 require (
 	al.essio.dev/pkg/shellescape v1.5.1 // indirect
