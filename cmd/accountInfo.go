@@ -101,7 +101,7 @@ var accountInfoCmd = &cobra.Command{
 		if user.Cookies != nil {
 			fmt.Println("Cookies:", *user.Cookies)
 		} else {
-			fmt.Println("Cookies: 0") // or "nil" if you prefer
+			fmt.Println("Cookies: 0")
 		}
 		fmt.Println("Votes:", user.VoteCount)
 		fmt.Println("Likes:", user.LikeCount)
