@@ -1,3 +1,6 @@
+# About
+This is Ftown CLI, the best way to use Flavortown. It integrates commands so you don t need to open up your browser and put it all just from your PC, simpler right?
+
 # Installing
 Go to release and press on the latest one. From there download the .zip file.
 Unzip it and put it somewhere safe.
