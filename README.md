@@ -1,1 +1,24 @@
-https://ftown.gitbook.io/ftown-docs-1/
+# Installing
+Go to release and press on the latest one. From there download the .zip file.
+Unzip it and put it somewhere safe.
+You should have this:
+<img width="1520" height="793" alt="image" src="https://github.com/user-attachments/assets/597a6730-4b70-4093-a1a3-f11133d7b090" />
+
+Right-click install-win.ps1 and select run with powershell. Your .exe file should dissapear and you are ready to go.
+
+# Commands
+#
+ftown auth [API-Key]
+ftown logout
+#
+ftown account-info
+#
+ftown shop [Where]
+ftown shop item "name of product" [Where]
+#
+ftown project create -t "title" -d "description"
+ftown project update [ID]
+ftown project info [ID]
+#
+
+Detailed informations on https://ftown.gitbook.io/ftown-docs-1/
