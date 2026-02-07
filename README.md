@@ -9,15 +9,19 @@ Right-click install-win.ps1 and select run with powershell. Your .exe file shoul
 # Commands
 #
 ftown auth [API-Key]
+
 ftown logout
 #
 ftown account-info
 #
 ftown shop [Where]
+
 ftown shop item "name of product" [Where]
 #
 ftown project create -t "title" -d "description"
+
 ftown project update [ID]
+
 ftown project info [ID]
 #
 
