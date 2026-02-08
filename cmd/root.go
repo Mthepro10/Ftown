@@ -1,5 +1,5 @@
 /*
-Copyright © 2026 NAME HERE <EMAIL ADDRESS>
+Copyright © 2026 MIHAI DRAGHICI <mihaidraghiici023@gmail.com>
 */
 package cmd
 
@@ -12,7 +12,7 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "ftown",
-	Short: "Etension for Flavortown",
+	Short: "Extension for Flavortown",
 	Long: `This includes:
 			-API authentification: ftown auth [API_KEY]
                 --To verify your key you should include the --verify, -v flag
@@ -24,14 +24,9 @@ var rootCmd = &cobra.Command{
 				--You can update projects by name or by id: ftown project update [ID]
 				--You can create projects: ftown project create --title --description
 				--You can see project info by name or by id: ftown project info [ID]
-				--Flag by name is not recommended because it is not precise`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+				--Flag byname is not recommended because it is not precise`,
 }
 
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
@@ -40,13 +35,4 @@ func Execute() {
 }
 
 func init() {
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
-
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.Flavortown_extension.yaml)")
-
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

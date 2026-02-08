@@ -26,7 +26,6 @@ var authCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		apiKey := args[0]
 
-		// Save API key in Windows Credential Manager
 		if err := keyring.Set(credentialService, credentialUser, apiKey); err != nil {
 			return fmt.Errorf("failed to store API key: %w", err)
 		}
