@@ -24,7 +24,11 @@ var rootCmd = &cobra.Command{
 				--You can update projects by name or by id: ftown project update [ID]
 				--You can create projects: ftown project create --title --description
 				--You can see project info by name or by id: ftown project info [ID]
-				--Flag byname is not recommended because it is not precise`,
+				--Flag byname is not recommended because it is not precise
+			-Added devlog command
+				--You can now see devlog information using: ftown devlog info [ID]
+		
+		More informations on https://ftown.gitbook.io/ftown-docs-1/`,
 }
 
 func Execute() {
