@@ -5,8 +5,6 @@ Copyright © 2026 MIHAI DRAGHICI <mihaidraghiici023@gmail.com>
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
 )
 
@@ -16,7 +14,6 @@ var devlogCmd = &cobra.Command{
 	Short: "the root command for devlogs",
 	Long:  `the root command for devlogs`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		fmt.Errorf("coming soon!")
 		return nil
 	},
 }
