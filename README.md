@@ -27,5 +27,6 @@ ftown project update [ID]
 
 ftown project info [ID]
 #
+ftown  devlog info [ID]
 
 Detailed informations on https://ftown.gitbook.io/ftown-docs-1/
