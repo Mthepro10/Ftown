@@ -96,29 +96,62 @@ var shopCmd = &cobra.Command{
 		}
 
 		for _, item := range ans {
-			fmt.Println("------------")
-			fmt.Println("id:", item.ID)
-			fmt.Println("name:", item.Name)
-			fmt.Println("description:", item.LongDescription)
-			fmt.Println("stock:", item.Stock)
-			fmt.Println("max quantity:", item.MaxQty)
-			fmt.Println("limited:", item.Limited)
 
+			table, err := LoadTable()
+			if err != nil {
+				return err
+			}
+
+			cost := 0.0
+			enabled := false
 			switch where {
 			case "au":
-				fmt.Println("Cost:", item.TicketCost.AU, "enabled:", item.Enabled.EnabledAU)
+				cost = item.TicketCost.AU
+				enabled = item.Enabled.EnabledAU
 			case "ca":
-				fmt.Println("Cost:", item.TicketCost.CA, "enabled:", item.Enabled.EnabledCA)
+				cost = item.TicketCost.CA
+				enabled = item.Enabled.EnabledCA
 			case "eu":
-				fmt.Println("Cost:", item.TicketCost.EU, "enabled:", item.Enabled.EnabledEU)
+				cost = item.TicketCost.EU
+				enabled = item.Enabled.EnabledEU
 			case "in":
-				fmt.Println("Cost:", item.TicketCost.IN, "enabled:", item.Enabled.EnabledIN)
+				cost = item.TicketCost.IN
+				enabled = item.Enabled.EnabledIN
 			case "uk":
-				fmt.Println("Cost:", item.TicketCost.UK, "enabled:", item.Enabled.EnabledUK)
+				cost = item.TicketCost.UK
+				enabled = item.Enabled.EnabledUK
 			case "us":
-				fmt.Println("Cost:", item.TicketCost.US, "enabled:", item.Enabled.EnabledUS)
+				cost = item.TicketCost.US
+				enabled = item.Enabled.EnabledUS
 			case "xx":
-				fmt.Println("Cost:", item.TicketCost.XX, "enabled:", item.Enabled.EnabledXX)
+				cost = item.TicketCost.XX
+				enabled = item.Enabled.EnabledXX
+			}
+
+			switch table {
+			case "old":
+				fmt.Println("------------")
+				fmt.Println("ID:", item.ID)
+				fmt.Println("Name:", item.Name)
+				fmt.Println("Description:", item.LongDescription)
+				fmt.Println("Stock:", item.Stock)
+				fmt.Println("Max Quantity:", item.MaxQty)
+				fmt.Println("Limited:", item.Limited)
+				fmt.Println("Cost:", cost, "Enabled:", enabled)
+
+			case "modern":
+				fmt.Println("------------")
+				fmt.Printf("%s (ID: %d)\n", item.Name, item.ID)
+				fmt.Printf("Description: %s\n", item.LongDescription)
+				fmt.Printf("Stock: %d | Max Qty: %d | Limited: %v\n", item.Stock, item.MaxQty, item.Limited)
+				fmt.Printf("Cost: %.2f | Enabled: %v\n", cost, enabled)
+
+			case "future":
+				fmt.Println(">>> ITEM INFO <<<")
+				fmt.Printf("[%04d] %s\n", item.ID, item.Name)
+				fmt.Printf("DESCRIPTION: %s\n", item.LongDescription)
+				fmt.Printf("STOCK: %d | MAX QTY: %d | LIMITED: %v\n", item.Stock, item.MaxQty, item.Limited)
+				fmt.Printf("COST: %.2f | ENABLED: %v\n", cost, enabled)
 			}
 		}
 

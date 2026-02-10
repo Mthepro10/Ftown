@@ -91,28 +91,85 @@ var itemCmd = &cobra.Command{
 			return err
 		}
 
-		fmt.Println("id:", ans.ID)
-		fmt.Println("name:", ans.Name)
-		fmt.Println("description:", ans.LongDescription)
-		fmt.Println("stock:", ans.Stock)
-		fmt.Println("max quantity:", ans.MaxQty)
-		fmt.Println("limited:", ans.Limited)
+		table, err := LoadTable()
+		if err != nil {
+			return err
+		}
 
-		switch where {
-		case "au":
-			fmt.Println("Cost:", ans.TicketCost.AU, "enabled:", ans.Enabled.EnabledAU)
-		case "ca":
-			fmt.Println("Cost:", ans.TicketCost.CA, "enabled:", ans.Enabled.EnabledCA)
-		case "eu":
-			fmt.Println("Cost:", ans.TicketCost.EU, "enabled:", ans.Enabled.EnabledEU)
-		case "in":
-			fmt.Println("Cost:", ans.TicketCost.IN, "enabled:", ans.Enabled.EnabledIN)
-		case "uk":
-			fmt.Println("Cost:", ans.TicketCost.UK, "enabled:", ans.Enabled.EnabledUK)
-		case "us":
-			fmt.Println("Cost:", ans.TicketCost.US, "enabled:", ans.Enabled.EnabledUS)
-		case "xx":
-			fmt.Println("Cost:", ans.TicketCost.XX, "enabled:", ans.Enabled.EnabledXX)
+		switch table {
+		case "old":
+			fmt.Println("Item info")
+			fmt.Println("------------")
+			fmt.Println("ID:", ans.ID)
+			fmt.Println("Name:", ans.Name)
+			fmt.Println("Description:", ans.LongDescription)
+			fmt.Println("Stock:", ans.Stock)
+			fmt.Println("Max Quantity:", ans.MaxQty)
+			fmt.Println("Limited:", ans.Limited)
+
+			switch where {
+			case "au":
+				fmt.Println("Cost:", ans.TicketCost.AU, "Enabled:", ans.Enabled.EnabledAU)
+			case "ca":
+				fmt.Println("Cost:", ans.TicketCost.CA, "Enabled:", ans.Enabled.EnabledCA)
+			case "eu":
+				fmt.Println("Cost:", ans.TicketCost.EU, "Enabled:", ans.Enabled.EnabledEU)
+			case "in":
+				fmt.Println("Cost:", ans.TicketCost.IN, "Enabled:", ans.Enabled.EnabledIN)
+			case "uk":
+				fmt.Println("Cost:", ans.TicketCost.UK, "Enabled:", ans.Enabled.EnabledUK)
+			case "us":
+				fmt.Println("Cost:", ans.TicketCost.US, "Enabled:", ans.Enabled.EnabledUS)
+			case "xx":
+				fmt.Println("Cost:", ans.TicketCost.XX, "Enabled:", ans.Enabled.EnabledXX)
+			}
+
+		case "modern":
+			fmt.Println("Item info")
+			fmt.Println("------------")
+			fmt.Printf("%s (ID: %d)\n", ans.Name, ans.ID)
+			fmt.Printf("Description: %s\n", ans.LongDescription)
+			fmt.Printf("Stock: %d | Max Qty: %d | Limited: %v\n", ans.Stock, ans.MaxQty, ans.Limited)
+
+			switch where {
+			case "au":
+				fmt.Printf("Cost: %v | Enabled: %v (AU)\n", ans.TicketCost.AU, ans.Enabled.EnabledAU)
+			case "ca":
+				fmt.Printf("Cost: %v | Enabled: %v (CA)\n", ans.TicketCost.CA, ans.Enabled.EnabledCA)
+			case "eu":
+				fmt.Printf("Cost: %v | Enabled: %v (EU)\n", ans.TicketCost.EU, ans.Enabled.EnabledEU)
+			case "in":
+				fmt.Printf("Cost: %v | Enabled: %v (IN)\n", ans.TicketCost.IN, ans.Enabled.EnabledIN)
+			case "uk":
+				fmt.Printf("Cost: %v | Enabled: %v (UK)\n", ans.TicketCost.UK, ans.Enabled.EnabledUK)
+			case "us":
+				fmt.Printf("Cost: %v | Enabled: %v (US)\n", ans.TicketCost.US, ans.Enabled.EnabledUS)
+			case "xx":
+				fmt.Printf("Cost: %v | Enabled: %v (XX)\n", ans.TicketCost.XX, ans.Enabled.EnabledXX)
+			}
+
+		case "future":
+			fmt.Println(">>> ITEM INFO <<<")
+			fmt.Printf("[%04d] %s\n", ans.ID, ans.Name)
+			fmt.Printf("DESCRIPTION: %s\n", ans.LongDescription)
+			fmt.Printf("STOCK: %d | MAX QTY: %d | LIMITED: %v\n", ans.Stock, ans.MaxQty, ans.Limited)
+
+			switch where {
+			case "au":
+				fmt.Printf("COST (AU): %v | ENABLED: %v\n", ans.TicketCost.AU, ans.Enabled.EnabledAU)
+			case "ca":
+				fmt.Printf("COST (CA): %v | ENABLED: %v\n", ans.TicketCost.CA, ans.Enabled.EnabledCA)
+			case "eu":
+				fmt.Printf("COST (EU): %v | ENABLED: %v\n", ans.TicketCost.EU, ans.Enabled.EnabledEU)
+			case "in":
+				fmt.Printf("COST (IN): %v | ENABLED: %v\n", ans.TicketCost.IN, ans.Enabled.EnabledIN)
+			case "uk":
+				fmt.Printf("COST (UK): %v | ENABLED: %v\n", ans.TicketCost.UK, ans.Enabled.EnabledUK)
+			case "us":
+				fmt.Printf("COST (US): %v | ENABLED: %v\n", ans.TicketCost.US, ans.Enabled.EnabledUS)
+			case "xx":
+				fmt.Printf("COST (XX): %v | ENABLED: %v\n", ans.TicketCost.XX, ans.Enabled.EnabledXX)
+			}
 		}
 
 		return nil

@@ -73,17 +73,46 @@ var createCmd = &cobra.Command{
 			return err
 		}
 
-		fmt.Println("Project ID: ", resp.ID)
-		fmt.Println("Title: ", resp.Title)
-		fmt.Println("Description: ", resp.Description)
-		fmt.Println("Repo URL: ", resp.RepoURL)
-		fmt.Println("Demo URL: ", resp.DemoURL)
-		fmt.Println("Readme URL: ", resp.ReadmeURL)
-		fmt.Println("AI Declaration: ", resp.AIDeclaration)
-		fmt.Println("Ship Status: ", resp.ShipStatus)
-		fmt.Println("Devlog IDs: ", resp.DevlogIDs)
-		fmt.Println("Created At: ", resp.CreatedAt)
-		fmt.Println("Updated At: ", resp.UpdatedAt)
+		table, err := LoadTable()
+		if err != nil {
+			return err
+		}
+
+		switch table {
+		case "old":
+			fmt.Println("Project info")
+			fmt.Println("------------")
+			fmt.Println("Project ID: ", resp.ID)
+			fmt.Println("Title: ", resp.Title)
+			fmt.Println("Description: ", resp.Description)
+			fmt.Println("Repo URL: ", resp.RepoURL)
+			fmt.Println("Demo URL: ", resp.DemoURL)
+			fmt.Println("Readme URL: ", resp.ReadmeURL)
+			fmt.Println("AI Declaration: ", resp.AIDeclaration)
+			fmt.Println("Ship Status: ", resp.ShipStatus)
+			fmt.Println("Devlog IDs: ", resp.DevlogIDs)
+			fmt.Println("Created At: ", resp.CreatedAt)
+			fmt.Println("Updated At: ", resp.UpdatedAt)
+
+		case "modern":
+			fmt.Println("Project info")
+			fmt.Println("------------")
+			fmt.Printf("%s (ID: %d)\n", resp.Title, resp.ID)
+			fmt.Printf("Description: %s\n", resp.Description)
+			fmt.Printf("Repo: %s | Demo: %s | Readme: %s\n", resp.RepoURL, resp.DemoURL, resp.ReadmeURL)
+			fmt.Printf("AI Declaration: %s | Ship Status: %s\n", resp.AIDeclaration, resp.ShipStatus)
+			fmt.Printf("Devlogs: %v\n", resp.DevlogIDs)
+			fmt.Printf("Created: %s | Updated: %s\n", resp.CreatedAt, resp.UpdatedAt)
+
+		case "future":
+			fmt.Println(">>> PROJECT INFO <<<")
+			fmt.Printf("[%04d] %s\n", resp.ID, resp.Title)
+			fmt.Printf("DESCRIPTION: %s\n", resp.Description)
+			fmt.Printf("REPO: %s  DEMO: %s  README: %s\n", resp.RepoURL, resp.DemoURL, resp.ReadmeURL)
+			fmt.Printf("AI DECL: %s | SHIP STATUS: %s\n", resp.AIDeclaration, resp.ShipStatus)
+			fmt.Printf("DEVLOG IDs: %v\n", resp.DevlogIDs)
+			fmt.Printf("CREATED: %s | UPDATED: %s\n", resp.CreatedAt, resp.UpdatedAt)
+		}
 
 		return nil
 	},

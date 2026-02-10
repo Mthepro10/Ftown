@@ -124,17 +124,46 @@ var updateCmd = &cobra.Command{
 			return err
 		}
 
-		fmt.Println("Project ID:", project.ID)
-		fmt.Println("Title:", project.Title)
-		fmt.Println("Description:", project.Description)
-		fmt.Println("Repo URL:", project.RepoURL)
-		fmt.Println("Demo URL:", project.DemoURL)
-		fmt.Println("Readme URL:", project.ReadmeURL)
-		fmt.Println("AI Declaration:", project.AIDeclaration)
-		fmt.Println("Ship Status:", project.ShipStatus)
-		fmt.Println("Devlog IDs:", project.DevlogIDs)
-		fmt.Println("Created At:", project.CreatedAt)
-		fmt.Println("Updated At:", project.UpdatedAt)
+		table, err := LoadTable()
+		if err != nil {
+			return err
+		}
+
+		switch table {
+		case "old":
+			fmt.Println("Project info")
+			fmt.Println("------------")
+			fmt.Println("Project ID:", project.ID)
+			fmt.Println("Title:", project.Title)
+			fmt.Println("Description:", project.Description)
+			fmt.Println("Repo URL:", project.RepoURL)
+			fmt.Println("Demo URL:", project.DemoURL)
+			fmt.Println("Readme URL:", project.ReadmeURL)
+			fmt.Println("AI Declaration:", project.AIDeclaration)
+			fmt.Println("Ship Status:", project.ShipStatus)
+			fmt.Println("Devlog IDs:", project.DevlogIDs)
+			fmt.Println("Created At:", project.CreatedAt)
+			fmt.Println("Updated At:", project.UpdatedAt)
+
+		case "modern":
+			fmt.Println("Project info")
+			fmt.Println("------------")
+			fmt.Printf("%s (ID: %d)\n", project.Title, project.ID)
+			fmt.Printf("Description: %s\n", project.Description)
+			fmt.Printf("Repo: %s | Demo: %s | Readme: %s\n", project.RepoURL, project.DemoURL, project.ReadmeURL)
+			fmt.Printf("AI Declaration: %s | Ship Status: %s\n", project.AIDeclaration, project.ShipStatus)
+			fmt.Printf("Devlogs: %v\n", project.DevlogIDs)
+			fmt.Printf("Created: %s | Updated: %s\n", project.CreatedAt, project.UpdatedAt)
+
+		case "future":
+			fmt.Println(">>> PROJECT INFO <<<")
+			fmt.Printf("[%04d] %s\n", project.ID, project.Title)
+			fmt.Printf("DESCRIPTION: %s\n", project.Description)
+			fmt.Printf("REPO: %s  DEMO: %s  README: %s\n", project.RepoURL, project.DemoURL, project.ReadmeURL)
+			fmt.Printf("AI DECL: %s | SHIP STATUS: %s\n", project.AIDeclaration, project.ShipStatus)
+			fmt.Printf("DEVLOG IDs: %v\n", project.DevlogIDs)
+			fmt.Printf("CREATED: %s | UPDATED: %s\n", project.CreatedAt, project.UpdatedAt)
+		}
 
 		return nil
 	},
