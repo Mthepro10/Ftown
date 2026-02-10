@@ -1,5 +1,6 @@
-![Hackatime](https://hackatime.hackclub.com/?project=Flavortown+extension)
+![Hackatime](https://hackatime-badge.hackclub.com/U09H03AC7AL/Flavortown+extension)
 ![Go Version](https://img.shields.io/github/go-mod/go-version/Mthepro10/Ftown)
+![License](https://opensource.org/license/mit)
 
 # The trust we offer you
 <img width="1893" height="782" alt="image" src="https://github.com/user-attachments/assets/33d809b8-f6c2-4f89-9d19-2ee9983cadef" />
