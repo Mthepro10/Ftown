@@ -1,3 +1,10 @@
+# The trust we offer you
+<img width="1893" height="782" alt="image" src="https://github.com/user-attachments/assets/33d809b8-f6c2-4f89-9d19-2ee9983cadef" />
+
+
+Ftown will always be a CLI app worthy to be trusted.
+
+
 # About
 This is Ftown CLI, the best way to use Flavortown. It integrates commands so you don t need to open up your browser and put it all just from your PC, simpler right?
 
