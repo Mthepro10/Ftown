@@ -1,4 +1,4 @@
-![Hackatime]([https://wakatime.com/badge/user/YOUR_USER_ID/project/YOUR_PROJECT_ID.svg](https://hackatime.hackclub.com/?project=Flavortown+extension))
+![Hackatime](https://hackatime.hackclub.com/?project=Flavortown+extension)
 ![Go Version](https://img.shields.io/github/go-mod/go-version/Mthepro10/Ftown)
 
 # The trust we offer you
