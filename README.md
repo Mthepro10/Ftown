@@ -1,4 +1,4 @@
-![Hackatime](https://hackatime-badge.hackclub.com/U09H03AC7AL/Flavortown+extension)
+![Hackatime](https://hackatime-badge.hackclub.com/U09H03AC7AL/Flavortown extension)
 ![Go Version](https://img.shields.io/github/go-mod/go-version/Mthepro10/Ftown)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
