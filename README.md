@@ -1,3 +1,6 @@
+![Hackatime](https://wakatime.com/badge/user/YOUR_USER_ID/project/YOUR_PROJECT_ID.svg)
+![Go Version](https://img.shields.io/github/go-mod/go-version/Mthepro10/Ftown)
+
 # The trust we offer you
 <img width="1893" height="782" alt="image" src="https://github.com/user-attachments/assets/33d809b8-f6c2-4f89-9d19-2ee9983cadef" />
 
