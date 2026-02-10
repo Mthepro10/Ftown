@@ -6,6 +6,8 @@
 # The trust we offer you
 <img width="1893" height="782" alt="image" src="https://github.com/user-attachments/assets/33d809b8-f6c2-4f89-9d19-2ee9983cadef" />
 
+70% overall functionality (try to also see the image in github repo)
+
 
 Ftown will always be a CLI app worthy to be trusted.
 
