@@ -103,6 +103,7 @@ var rootCmd = &cobra.Command{
 			-Added devlog command
 				--You can now see devlog information using: ftown devlog info [ID]
 			-You can config the print using the command: ftown config [path to .yaml file]
+				--There are 3 ways pf configuration: default(old), modern, future
 		
 		More informations on https://ftown.gitbook.io/ftown-docs-1/`,
 }
