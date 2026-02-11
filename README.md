@@ -37,6 +37,8 @@ powershell -ExecutionPolicy Bypass -File .\uninstall-win.ps1
 
 # Commands
 #
+ftown config "path to file"
+#
 ftown auth [API-Key]
 
 ftown logout
