@@ -121,8 +121,7 @@ var accountInfoCmd = &cobra.Command{
 				float64(user.DevlogSecondsTotal)/3600, float64(user.DevlogSecondsToday)/3600)
 
 		case "future":
-			fmt.Println("Account info")
-			fmt.Println("------------")
+			fmt.Println(">>> ACCOUNT INFO <<<")
 			fmt.Printf("[USER-%04d] %s\n", user.ID, user.DisplayName)
 			fmt.Printf("SLACK: %s\n", user.SlackID)
 			fmt.Printf("PROJECTS (%d): %v\n", len(user.ProjectIDs), user.ProjectIDs)
