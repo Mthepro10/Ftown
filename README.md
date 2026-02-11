@@ -3,15 +3,12 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 
-# The trust we offer you
+# The trust the program offer you
 <img width="1893" height="782" alt="image" src="https://github.com/user-attachments/assets/33d809b8-f6c2-4f89-9d19-2ee9983cadef" />
 
 
 
-70% overall functionality (try to also see the image in github repo)
-
-
-Ftown will always be a CLI app worthy to be trusted.
+see it from github repo, if you are in Flavortown
 
 
 # About
@@ -25,7 +22,19 @@ You should have this:
 
 Right-click install-win.ps1 and select run with powershell. Your .exe file should dissapear and you are ready to go.
 
+## If the install/uninstall does not work
+If the installation those not work your Powershell might be blocking the files.
+So go over and open the Powershell from your folder, where you have the installation files.
+
+Write this command to install : 
+powershell -ExecutionPolicy Bypass -File .\install-win.ps1
+
+And to uninstall : 
+powershell -ExecutionPolicy Bypass -File .\uninstall-win.ps1
+
 # Commands
+#
+ftown config "path to file"
 #
 ftown auth [API-Key]
 
