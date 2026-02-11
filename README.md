@@ -30,10 +30,10 @@ If the installation those not work your Powershell might be blocking the files.
 So go over and open the Powershell from your folder, where you have the installation files.
 
 Write this command to install : 
-'''powershell -ExecutionPolicy Bypass -File .\install-win.ps1'''
+powershell -ExecutionPolicy Bypass -File .\install-win.ps1
 
 And to uninstall : 
-'''powershell -ExecutionPolicy Bypass -File .\uninstall-win.ps1'''
+powershell -ExecutionPolicy Bypass -File .\uninstall-win.ps1
 
 # Commands
 #
