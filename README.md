@@ -25,6 +25,15 @@ You should have this:
 
 Right-click install-win.ps1 and select run with powershell. Your .exe file should dissapear and you are ready to go.
 
+## If the install/uninstall does not work
+If the installation those not work your Powershell might be blocking the files.
+So go over and open the Powershell from your folder, where you have the installation files.
+Write this command to install : 
+'''powershell -ExecutionPolicy Bypass -File .\install-win.ps1'''
+
+And to uninstall : 
+'''powershell -ExecutionPolicy Bypass -File .\uninstall-win.ps1'''
+
 # Commands
 #
 ftown auth [API-Key]
