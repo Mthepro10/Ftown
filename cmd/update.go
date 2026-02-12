@@ -31,11 +31,7 @@ var updateCmd = &cobra.Command{
 		var id string
 
 		if byname != "" {
-			req, err := http.NewRequest(
-				"GET",
-				"https://flavortown.hackclub.com/api/v1/projects?query="+url.QueryEscape(byname),
-				nil,
-			)
+			req, err := http.NewRequest("GET", "https://flavortown.hackclub.com/api/v1/projects?query="+url.QueryEscape(byname), nil)
 			if err != nil {
 				return err
 			}
