@@ -54,4 +54,8 @@ ftown project info [ID]
 #
 ftown  devlog info [ID]
 
+# Extras
+
 Detailed informations on https://ftown.gitbook.io/ftown-docs-1/
+
+Don't forget about the demo video: https://youtu.be/FR4tUIJUT6A
